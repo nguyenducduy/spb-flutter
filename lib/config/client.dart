@@ -14,7 +14,8 @@ class Config {
   static final Link link = authLink.concat(httpLink);
 
   static ValueNotifier<GraphQLClient> initailizeClient(String token) {
-    _token = token;
+    _token = "Bearer $token";
+
     final policies = Policies(
       fetch: FetchPolicy.networkOnly,
     );
