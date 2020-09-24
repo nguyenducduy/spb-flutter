@@ -113,14 +113,16 @@ class _LoginFormState extends State<LoginForm> {
                         if (mutationResult.hasException == false) {
                           final _token =
                               mutationResult.data['loginUser']['token'];
+                          final _user =
+                              mutationResult.data['loginUser']['user'];
                           Config.initailizeClient(_token);
-                          // await sharedPreferenceService.setToken(_token);
-                          print(_token);
+                          await sharedPreferenceService.setToken(_token);
+                          await sharedPreferenceService.setUser(_user);
+
                           print('Login success');
                           return MainApp(
                             token: _token,
                           );
-                          // Navigator.pushNamed(context, '/welcome');
                         } else {
                           print('Error mutate loginUser graphql.');
                         }

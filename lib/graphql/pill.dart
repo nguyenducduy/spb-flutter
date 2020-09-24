@@ -11,4 +11,15 @@ class Pill {
       }
     }
     """;
+
+  static String add =
+      """mutation createUserPillDevice(\$name: String!, \$pillFormId: Int!, \$deviceId: Int!, \$amount: String!, \$remain: String!, \$note: String) {
+    createUserPillDevice(name: \$name, pillFormId: \$pillFormId, deviceId: \$deviceId, amount: \$amount, remain: \$remain, note: \$note) {
+      userPillDevice {
+        amount
+        remain
+        note
+      }
+    }
+  }""";
 }
